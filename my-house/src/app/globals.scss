@@ -6,6 +6,10 @@ html {
     @include normalize(all);
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body.dark {
     background-color: $darkMainBGColor;
     color: $darkMainFontColor;
@@ -13,4 +17,8 @@ body.dark {
 
 a {
     text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
 }

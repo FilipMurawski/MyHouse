@@ -2,4 +2,4 @@
 2. Create a navbar:
     - logo
     - links
-    - login/register
+    - login/register - only visual - implementation later
