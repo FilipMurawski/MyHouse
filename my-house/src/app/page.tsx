@@ -1,9 +1,8 @@
-import styles from './page.module.scss'
+import Page from "@/components/Page/Page";
+
 
 export default function Home() {
   return (
-    <main className={styles.page}>
-      <h1 className={styles.page__h1}>Hello World!</h1>
-    </main>
-  )
+<Page name="Hello World!" />
+  );
 }
