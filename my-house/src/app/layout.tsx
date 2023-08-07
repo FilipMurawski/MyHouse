@@ -1,5 +1,6 @@
 import { Metadata } from "next";
-import Link from "next/link";
+import Navbar from "@/components/Navbar/Navbar";
+import "./globals.scss";
 
 export const metadata: Metadata = {
   title: 'My House',
@@ -13,16 +14,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <nav className="navbar">
-          <Link href={"/"}>Logo</Link>
-          <ul className="navbar__list">
-            <li className="navbar__link">Finances</li>
-            <li className="navbar__link">Food</li>
-            <li className="navbar__link">TODO Lists</li>
-            <li className="navbar__link">Calendar</li>
-          </ul>
-        </nav>
+      <body className="dark">
+        <Navbar />
         {children}
         </body>
     </html>

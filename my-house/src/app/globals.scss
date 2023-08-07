@@ -1,0 +1,24 @@
+@import "../../node_modules/normalize-scss/sass/normalize";
+@import "../scss/variables.scss";
+@import "../scss/mixins.scss";
+
+html {
+    @include normalize(all);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body.dark {
+    background-color: $darkMainBGColor;
+    color: $darkMainFontColor;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
