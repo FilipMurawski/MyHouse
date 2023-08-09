@@ -1,16 +1,16 @@
-import React, { FunctionComponent, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import styles from "./Page.module.scss";
 
-interface PageProps {
-    name: string,
+interface Props {
+    name?: string,
     children?: ReactElement,
 }
 
-const Page: FunctionComponent<PageProps> = ({children, name}) => {
+const Page = ({children, name}: Props) => {
   return (
     <main className={styles.page}>
-    <h1 className={styles.page__h1}>{name}</h1>
-    {children}
+    {name && <h1 className={styles.page__h1}>{name}</h1>}
+   {children}
   </main>
   )
 }
