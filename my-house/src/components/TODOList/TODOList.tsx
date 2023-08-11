@@ -1,8 +1,18 @@
+"use client"
+
 import styles from "./TODOList.module.scss";
 import React from 'react'
 
+interface Task {
+  order: number,
+  id: string,
+  text: string
+}
 interface Props {
   name: string,
+  order: number,
+  tasks: Array<Task>,
+  id: string
 }
 
 const TODOList = (props: Props) => {
@@ -13,11 +23,7 @@ const TODOList = (props: Props) => {
             <div className={styles.TODOList__settingsButton}>...</div>
         </header>
         <ul className={styles.TODOList__tasks}>
-        <li className={styles.TODOList__task}>asdasd</li>
-        <li className={styles.TODOList__task}>asda</li>
-        <li className={styles.TODOList__task}>asda</li>
-        <li className={styles.TODOList__task}>asda</li>
-        <li className={styles.TODOList__task}>asda</li>
+        {props.tasks?.map((task) => <li id={task.id} className={styles.TODOList__task}>{task.text}</li>)}
         </ul>
     </section>
   )
