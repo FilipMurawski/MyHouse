@@ -1,27 +1,32 @@
 @import "../../scss/variables.scss";
 
 .Navbar {
-    position: fixed;
-    offset: 0 0;
+  position: fixed;
+  offset: 0 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  background-color: $darkNavbarBGColor;
+
+  a {
+    color: $darkNavbarFontColor;
+  }
+
+  &__list {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    width: 100vw;
-    background-color: $darkNavbarBGColor;
+    gap: 50px;
+  }
 
-    a {
-        color: $darkNavbarFontColor;
-    }
+  &__logo {
+    font-weight: 700;
+    font-size: 32px;
+  }
 
-    &__list {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 50px;
-    }
-
-    &__logo {
-        font-weight: 700;
-        font-size: 32px;
-    }
+  &__link {
+    font-weight: 700;
+    font-size: 20px;
+  }
 }

@@ -3,22 +3,22 @@
 @import "../scss/mixins.scss";
 
 html {
-    @include normalize(all);
+  @include normalize(all);
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body.dark {
-    background-color: $darkMainBGColor;
-    color: $darkMainFontColor;
+  background-color: $darkMainBGColor;
+  color: $darkMainFontColor;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }

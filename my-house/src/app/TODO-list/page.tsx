@@ -1,9 +1,18 @@
-import styles from './page.module.scss'
+'use client'
 
-export default function TODOList() {
+import Page from "@/components/Page/Page";
+import TODOList from "@/components/TODOList/TODOList";
+import data from "@/app/TODOs.json";
+import { useState } from "react";
+
+export default function Home() {
+
+  const [TODOs, setTODOs] = useState(data.TODOs)
   return (
-    <main className={styles.page}>
-      <h1 className={styles.page__h1}>TODO List</h1>
-    </main>
-  )
+<Page children={
+<>
+{TODOs?.map((TODO) => <TODOList name={TODO.name} order={TODO.order} tasks={TODO.tasks} id={TODO.id}/>)}
+</>
+}/>
+  );
 }
