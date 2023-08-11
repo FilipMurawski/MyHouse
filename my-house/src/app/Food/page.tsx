@@ -1,8 +1,5 @@
 import Page from "@/components/Page/Page";
 
-
 export default function Home() {
-  return (
-<Page name="Food" />
-  );
+  return <Page name="Food" />;
 }

@@ -1,45 +1,43 @@
 @import "../../scss/variables.scss";
 
 .TODOList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-width: 50%;
+  padding: 0 -15px;
+  background-color: $darkTODOListBGColor;
+  border: 3px solid $darkMainFontColor;
+
+  &__header {
+    position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
+    padding: 0 30px;
+    background-color: $darkTODOListHeaderBGColor;
+    border-bottom: 2px solid $darkMainFontColor;
+  }
+
+  &__settingsButton {
+    font-weight: 700;
+    font-size: 30px;
+  }
+
+  &__tasks {
+    margin: 0px;
+    padding: 20px 0 20px 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
     flex-direction: column;
-    min-width: 50%;
-    padding: 0 -15px;
-    background-color: $darkTODOListBGColor;
-    border: 3px solid $darkMainFontColor;
+    gap: 5px;
+  }
 
-    &__header {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        padding: 0 30px;
-        background-color: $darkTODOListHeaderBGColor;
-        border-bottom: 2px solid $darkMainFontColor;
-
-    }
-
-    &__settingsButton {
-        font-weight: 700;
-        font-size: 30px;
-
-    }
-
-    &__tasks {
-        margin: 0px;
-        padding: 20px 0 20px 20px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: left;
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    &__task {
-        width: 100%;
-    }
+  &__task {
+    width: 100%;
+  }
 }
