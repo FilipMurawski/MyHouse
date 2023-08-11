@@ -1,28 +1,37 @@
 "use client";
 
-import Page from "@/components/Page/Page";
-import TODOList from "@/components/TODOList/TODOList";
+import TODOList, { Task } from "@/components/TODOList/TODOList";
 import data from "@/app/TODOs.json";
 import { useState } from "react";
+import styles from "@/components/Page/Page.module.scss"
+
+export interface TODOsType {
+  name: string;
+  order: number;
+  tasks: Array<Task>;
+  id: string;
+}
 
 export default function Home() {
   const [TODOs, setTODOs] = useState(data.TODOs);
-  console.log(TODOs);
-
+  const setNewTODOs = (NewTODOs: Array<TODOsType>) => {
+    setTODOs(NewTODOs)    
+  }
   return (
-    <Page
-      children={
-        <>
+    <main className={styles.page}>
+      <>
           {TODOs?.map((TODO) => (
             <TODOList
               name={TODO.name}
               order={TODO.order}
               tasks={TODO.tasks}
-              key={TODO.key}
+              key={TODO.id}
+              onChange={setNewTODOs}
+              TODOs = {TODOs}
+              id={TODO.id}
             />
           ))}
         </>
-      }
-    />
+    </main>
   );
 }

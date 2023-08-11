@@ -1,34 +1,40 @@
+import { TODOsType } from "@/app/TODO-list/page";
 import TODOItem from "./TODOItem";
 import styles from "./TODOList.module.scss";
 import React from "react";
 
 export interface Task {
   order: number;
-  key: string;
   text: string;
   checked: boolean;
+  id: string;
 }
-interface Props {
-  name: string;
-  order: number;
-  tasks: Array<Task>;
+export interface Props extends TODOsType{
+  onChange: Function;
+  TODOs: Array<TODOsType>
   key: string;
 }
 
-const TODOList = (props: Props) => {
+
+
+const TODOList = ({name, onChange, TODOs, tasks, order}: Props) => {
   return (
     <section className={styles.TODOList}>
       <header className={styles.TODOList__header}>
-        <h3 className={styles.TODOList__name}>{props.name}</h3>
+        <h3 className={styles.TODOList__name}>{name}</h3>
         <div className={styles.TODOList__settingsButton}>...</div>
       </header>
       <ul className={styles.TODOList__tasks}>
-        {props.tasks?.map((task) => (
+        {tasks?.map((task) => (
           <TODOItem
             order={task.order}
-            key={task.key}
+            key={task.id}
             text={task.text}
             checked={task.checked}
+            onChange={onChange}
+            TODOs = {TODOs}
+            TODOOrder = {order}
+            id={task.id}
           />
         ))}
       </ul>

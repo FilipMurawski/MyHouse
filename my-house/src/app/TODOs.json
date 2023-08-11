@@ -2,22 +2,22 @@
   "TODOs": [
     {
       "name": "Home",
-      "order": 1,
-      "key": "12312",
+      "order": 0,
+      "id": "12312",
       "tasks": [
-        { "key": "5", "order": 1, "text": "test001", "checked": false },
-        { "key": "8", "order": 2, "text": "test002", "checked": false },
-        { "key": "11", "order": 3, "text": "test003", "checked": false }
+        { "id": "5", "order": 0, "text": "test001", "checked": false },
+        { "id": "8", "order": 1, "text": "test002", "checked": false },
+        { "id": "11", "order": 2, "text": "test003", "checked": false }
       ]
     },
     {
       "name": "Shopping",
-      "order": 2,
-      "key": "12444",
+      "order": 1,
+      "id": "12444",
       "tasks": [
-        { "key": "4", "order": 1, "text": "test004", "checked": false },
-        { "key": "10", "order": 2, "text": "test005", "checked": false },
-        { "key": "15", "order": 3, "text": "test006", "checked": false }
+        { "id": "4", "order": 0, "text": "test004", "checked": false },
+        { "id": "10", "order": 1, "text": "test005", "checked": false },
+        { "id": "15", "order": 2, "text": "test006", "checked": false }
       ]
     }
   ]
