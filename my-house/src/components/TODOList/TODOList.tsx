@@ -33,7 +33,10 @@ const TODOList = ({ onChange, TODO }: Props) => {
         onChange({ ...TODO, tasks: updatedTasks })
     }
     const handleTaskAdd = (text: string) => {
-        const newOrder = tasks.sort((a, b) => a.order - b.order)[0].order + 1
+        const newOrder =
+            tasks.length > 0
+                ? tasks.sort((a, b) => a.order - b.order)[0].order + 1
+                : 0
         const newTask: Task = {
             checked: false,
             id: uuidv4(),
