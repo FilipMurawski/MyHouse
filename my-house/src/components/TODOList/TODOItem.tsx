@@ -30,10 +30,24 @@ const TODOItem = ({ task, onChange, onDelete }: Props) => {
                 checked={checked}
                 onChange={handleChecked}
             />
-            <label htmlFor={id}>
-                <input type="text" value={text} onChange={handleInputChange} />
+            <label htmlFor={id} className={styles.TODOList__label}>
+                <input
+                    className={
+                        !checked
+                            ? styles.TODOList__text
+                            : styles.TODOList__textChecked
+                    }
+                    type="text"
+                    value={text}
+                    onChange={handleInputChange}
+                />
             </label>
-            <button onClick={handleDelete}>X</button>
+            <button
+                onClick={handleDelete}
+                className={styles.TODOList__deleteTask}
+            >
+                X
+            </button>
         </li>
     )
 }

@@ -43,6 +43,22 @@ const TODOList = ({ onChange, TODO }: Props) => {
         const updatedTasks = [...tasks, newTask]
         onChange({ ...TODO, tasks: updatedTasks })
     }
+
+    const sortByChecked = (a: Task, b: Task) => {
+        if (a.checked) {
+            if (b.checked) {
+                return 0
+            } else {
+                return 1
+            }
+        } else {
+            if (b.checked) {
+                return -1
+            } else {
+                return 0
+            }
+        }
+    }
     return (
         <section className={styles.TODOList}>
             <header className={styles.TODOList__header}>
@@ -50,14 +66,16 @@ const TODOList = ({ onChange, TODO }: Props) => {
                 <div className={styles.TODOList__settingsButton}>...</div>
             </header>
             <ul className={styles.TODOList__tasks}>
-                {tasks?.map((task) => (
-                    <TODOItem
-                        key={task.id}
-                        onChange={handleTaskUpdate}
-                        onDelete={handleTaskDelete}
-                        task={task}
-                    />
-                ))}
+                {tasks
+                    ?.sort(sortByChecked)
+                    .map((task) => (
+                        <TODOItem
+                            key={task.id}
+                            onChange={handleTaskUpdate}
+                            onDelete={handleTaskDelete}
+                            task={task}
+                        />
+                    ))}
                 <TODOAddItem onAdd={handleTaskAdd} />
             </ul>
         </section>
