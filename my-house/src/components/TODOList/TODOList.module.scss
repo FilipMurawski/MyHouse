@@ -40,4 +40,17 @@
   &__task {
     width: 100%;
   }
+
+  &__AddItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: 13px;
+  }
+
+  &__Submit {
+    font-weight: 700;
+    font-size: 16px;
+  }
 }

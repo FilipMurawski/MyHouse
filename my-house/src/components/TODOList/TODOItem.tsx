@@ -1,33 +1,24 @@
 import styles from './TODOList.module.scss'
 import React, { ChangeEvent, useState } from 'react'
 import { Task } from './TODOList'
-import { TODOsType } from '@/app/TODO-list/page'
 
 interface Props {
     onChange: (task: Task) => void
+    onDelete: (taskId: string) => void
     task: Task
     key: string
 }
 
-const TODOItem = ({ task, onChange }: Props) => {
-    const { checked, id, order, text } = task
+const TODOItem = ({ task, onChange, onDelete }: Props) => {
+    const { checked, id, text } = task
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         onChange({ ...task, text: event.target.value })
     }
     const handleChecked = (event: ChangeEvent<HTMLInputElement>) => {
-        // setChecked(event.target.checked)
-        // const newTODOs = props.TODOs;
-        // newTODOs[props.TODOOrder].tasks[props.order].checked = event.target.checked;
-        // props.onChange(newTODOs);
-        console.log(id, event.target.checked)
+        onChange({ ...task, checked: event.target.checked })
     }
     const handleDelete = () => {
-        // const newTODOs = props.TODOs;
-        // newTODOs[props.TODOOrder].tasks = newTODOs[props.TODOOrder].tasks.filter((task) => task.id !== eventProps.id);
-        // console.log(newTODOs);
-
-        // return props.onChange(newTODOs);
-        console.log(id)
+        onDelete(task.id)
     }
 
     return (

@@ -1,11 +1,11 @@
-import { TODOsType } from '@/app/TODO-list/page'
+import { TodosType } from '@/app/TODO-list/page'
 import data from '@/app/TODOs.json'
 
-export function getTodos(): TODOsType[] {
+export function getTodos(): TodosType[] {
     return data.TODOs
 }
 
-export function updatedTodos(updatedTodo: TODOsType, todoList: TODOsType[]) {
+export function updateTodos(updatedTodo: TodosType, todoList: TodosType[]) {
     const updatedTODOs = todoList.map((todo) => {
         if (todo.id === updatedTodo.id) {
             return updatedTodo

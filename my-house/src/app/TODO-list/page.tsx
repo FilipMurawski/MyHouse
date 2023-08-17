@@ -4,9 +4,9 @@ import TODOList, { Task } from '@/components/TODOList/TODOList'
 
 import { useEffect, useState } from 'react'
 import styles from '@/components/Page/Page.module.scss'
-import { getTodos, updatedTodos } from '@/api/todo'
+import { getTodos, updateTodos } from '@/api/todo'
 
-export interface TODOsType {
+export interface TodosType {
     name: string
     order: number
     tasks: Array<Task>
@@ -14,30 +14,23 @@ export interface TODOsType {
 }
 
 export default function Home() {
-    const [TODOs, setTODOs] = useState<TODOsType[]>([])
+    const [TODOs, setTODOs] = useState<TodosType[]>([])
     useEffect(() => {
         setTODOs(getTodos())
     }, [])
 
-    const setNewTODOs = (NewTODOs: Array<TODOsType>) => {
-        setTODOs(NewTODOs)
-    }
-    const handleUpdateTodo = (updatedTODO: TODOsType) => {
-        const todos = updatedTodos(updatedTODO, TODOs)
+    const handleUpdateTodo = (updatedTodo: TodosType) => {
+        const todos = updateTodos(updatedTodo, TODOs)
         setTODOs(todos)
     }
     return (
         <main className={styles.page}>
             <>
-                {TODOs?.map((TODO) => (
+                {TODOs?.map((Todo) => (
                     <TODOList
-                        // name={TODO.name}
-                        // order={TODO.order}
-                        // tasks={TODO.tasks}
-                        key={TODO.id}
+                        key={Todo.id}
                         onChange={handleUpdateTodo}
-                        TODO={TODO}
-                        // id={TODO.id}
+                        TODO={Todo}
                     />
                 ))}
             </>
