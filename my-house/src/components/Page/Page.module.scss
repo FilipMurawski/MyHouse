@@ -1,15 +1,15 @@
 .page {
-    margin: 0 auto;
-    padding: 0 15px;
-    max-width: 1320px;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 1320px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
 
-    &__h1 {
-        display: block;
-        font-size: 60px;
-    }
+  &__h1 {
+    display: block;
+    font-size: 60px;
+  }
 }

@@ -9,16 +9,16 @@ const Navbar = () => {
       </Link>
       <ul className={styles.Navbar__list}>
         <li className={styles.Navbar__link}>
-          <Link href={"./Finances"}>Finances</Link>
+          <Link href="./Finances">Finances</Link>
         </li>
         <li className={styles.Navbar__link}>
-          <Link href={"./Food"}>Food</Link>
+          <Link href="./Food">Food</Link>
         </li>
         <li className={styles.Navbar__link}>
-          <Link href={"./TODO-list"}>TODO Lists</Link>
+          <Link href="./TODO-list">TODO Lists</Link>
         </li>
         <li className={styles.Navbar__link}>
-          <Link href={"./Calendar"}>Calendar</Link>
+          <Link href="./Calendar">Calendar</Link>
         </li>
       </ul>
       <form>
