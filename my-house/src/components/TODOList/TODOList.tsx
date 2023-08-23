@@ -4,6 +4,7 @@ import styles from './TODOList.module.scss'
 import React from 'react'
 import TODOAddItem from './TODOAddItem'
 import { v4 as uuidv4 } from 'uuid'
+import TODOSettings from './TODOSettings'
 
 export interface Task {
     order: number
@@ -66,7 +67,10 @@ const TODOList = ({ onChange, TODO }: Props) => {
         <section className={styles.TODOList}>
             <header className={styles.TODOList__header}>
                 <h3 className={styles.TODOList__name}>{name}</h3>
-                <div className={styles.TODOList__settingsButton}>...</div>
+                <TODOSettings
+                    direction="down"
+                    className={styles.TODOList__settingsButton}
+                />
             </header>
             <ul className={styles.TODOList__tasks}>
                 {tasks
