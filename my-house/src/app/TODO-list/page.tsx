@@ -4,8 +4,7 @@ import TODOList, { Task } from '@/components/TODOList/TODOList'
 
 import { useEffect, useState } from 'react'
 import styles from '@/components/Page/Page.module.scss'
-import { getTodos, updateTodos } from '@/api/todo'
-import { v4 as uuidv4 } from 'uuid'
+import { addTodo, deleteTodo, getTodos, updateTodos } from '@/api/todo'
 import TODOAddList from '@/components/TODOList/TODOAddList'
 
 export interface TodosType {
@@ -26,14 +25,12 @@ export default function Home() {
         setTODOs(todos)
     }
     const handleTodoAdd = (text: string) => {
-        const newOrder = TODOs.sort((a, b) => a.order - b.order)[0].order + 1
-        const newTodo: TodosType = {
-            id: uuidv4(),
-            order: newOrder,
-            name: text,
-            tasks: [],
-        }
-        const updatedTodos = [...TODOs, newTodo]
+        const updatedTodos = addTodo(text, TODOs)
+        setTODOs(updatedTodos)
+    }
+
+    const handleTodoDelete = (TodoId: string) => {
+        const updatedTodos = deleteTodo(TodoId, TODOs)
         setTODOs(updatedTodos)
     }
     return (
@@ -45,6 +42,7 @@ export default function Home() {
                         key={Todo.id}
                         onChange={handleUpdateTodo}
                         TODO={Todo}
+                        onDelete={handleTodoDelete}
                     />
                 ))}
             </section>

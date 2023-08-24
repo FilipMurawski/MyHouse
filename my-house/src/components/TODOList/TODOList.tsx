@@ -16,9 +16,10 @@ export interface Props {
     onChange: (todo: TodosType) => void
     TODO: TodosType
     key: string
+    onDelete: (TodoId: string) => void
 }
 
-const TODOList = ({ onChange, TODO }: Props) => {
+const TODOList = ({ onChange, TODO, onDelete }: Props) => {
     const { name, tasks } = TODO
     const handleTaskUpdate = (updatedTask: Task) => {
         const updatedTasks = tasks.map((task) => {
@@ -34,10 +35,7 @@ const TODOList = ({ onChange, TODO }: Props) => {
         onChange({ ...TODO, tasks: updatedTasks })
     }
     const handleTaskAdd = (text: string) => {
-        const newOrder =
-            tasks.length > 0
-                ? tasks.sort((a, b) => a.order - b.order)[0].order + 1
-                : 0
+        const newOrder = tasks.length
         const newTask: Task = {
             checked: false,
             id: uuidv4(),
@@ -69,7 +67,8 @@ const TODOList = ({ onChange, TODO }: Props) => {
                 <h3 className={styles.TODOList__name}>{name}</h3>
                 <TODOSettings
                     direction="down"
-                    className={styles.TODOList__settingsButton}
+                    onDelete={onDelete}
+                    Todo={TODO}
                 />
             </header>
             <ul className={styles.TODOList__tasks}>

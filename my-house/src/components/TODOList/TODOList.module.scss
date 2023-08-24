@@ -23,7 +23,19 @@
 
   &__settingsButton {
     font-weight: 700;
-    font-size: 30px;
+    font-size: 25px;
+    width: 30px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  &__settingsList {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   &__tasks {

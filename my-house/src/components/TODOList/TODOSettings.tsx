@@ -8,9 +8,18 @@ import {
 } from 'reactstrap'
 import { DropdownProps } from 'reactstrap/types/lib/Dropdown'
 
-const TODOSettings = ({ direction, ...args }: DropdownProps) => {
+const TODOSettings = ({
+    direction,
+    Todo,
+    onDelete,
+    ...props
+}: DropdownProps) => {
     const [dropdownOpen, setDropdownOpen] = useState(false)
     const toggle = () => setDropdownOpen((prevState) => !prevState)
+
+    const handleDelete = () => {
+        onDelete(Todo.id)
+    }
     return (
         <div>
             <Dropdown
@@ -18,11 +27,21 @@ const TODOSettings = ({ direction, ...args }: DropdownProps) => {
                 toggle={toggle}
                 direction={direction}
             >
-                <DropdownToggle caret>...</DropdownToggle>
+                <DropdownToggle
+                    caret
+                    className={styles.TODOList__settingsButton}
+                >
+                    ...
+                </DropdownToggle>
                 {dropdownOpen && (
-                    <DropdownMenu {...args}>
+                    <DropdownMenu
+                        {...props}
+                        className={styles.TODOList__settingsList}
+                    >
                         <DropdownItem>Rename</DropdownItem>
-                        <DropdownItem>Delete</DropdownItem>
+                        <DropdownItem onClick={handleDelete}>
+                            Delete
+                        </DropdownItem>
                         <DropdownItem>Settings</DropdownItem>
                     </DropdownMenu>
                 )}
